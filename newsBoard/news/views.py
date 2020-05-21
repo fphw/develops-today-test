@@ -42,7 +42,7 @@ from rest_framework.permissions import AllowAny
 
 
 class ArticleCreateApiView(generics.CreateAPIView):
-    permission_classes = (AllowAny,)
+    #permission_classes = (AllowAny,)
     serializer_class = ArticleListSerializer
 
 
