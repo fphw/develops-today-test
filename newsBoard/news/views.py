@@ -6,7 +6,7 @@ from rest_framework.generics import get_object_or_404
 # Create your views here.
 from .models import Article, Comment
 from .serializers import ArticleListSerializer, CommentListSerializer
-
+from rest_framework.permissions import AllowAny
 
 # class ArticleApiView(APIView):
 #     def get(self, request):
@@ -40,7 +40,9 @@ from .serializers import ArticleListSerializer, CommentListSerializer
 #             "message": "Article with id `{}` has been deleted.".format(pk)
 #         })
 
+
 class ArticleCreateApiView(generics.CreateAPIView):
+    permission_classes = (AllowAny,)
     serializer_class = ArticleListSerializer
 
 
