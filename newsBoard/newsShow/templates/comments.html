@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+<p>COMENTS</p>
+{% for elem in comments %}
+<p>{{elem.author}} : {{elem.content}}</p>
+{% endfor %}
+<form action="/showComments/{{id}}" method="post">
+    {% csrf_token %}
+
+    {{add_comment.as_p}}
+    <input type="submit" value="Submit" />
+
+</form>
+
+{% endblock %}

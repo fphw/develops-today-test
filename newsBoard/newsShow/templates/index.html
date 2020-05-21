@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    {%block content%}
     {% if user.is_authenticated  %}
     <a href="api/v1/auth/logout?next=/" , id="a_auth">выйти({{user.username}})</a>
     {% else %}
@@ -49,7 +50,10 @@
             <td><a href="{{elem.link}}">{{elem.title}}</a></td>
             <td>{{elem.creation_date}}</td>
             <td>{{elem.author}}</td>
-            <td>{{count_coments.number_of_answers}}</td>
+
+            <td>
+                <a href="showComments/{{elem.id}}">Comments: {{count_coments.number_of_answers}}</a>
+            </td>
             <td>{{elem.likes}}
                 <a href="addLike/{{elem.id}}">
                     <img src="{% static 'image/like-1873541_640.png' %}" width="25px" height="25px">
@@ -59,7 +63,7 @@
         </tr>
         {% endfor %}
     </table>
-
+    {%endblock%}
 </body>
 
 </html>
