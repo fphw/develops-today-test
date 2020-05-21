@@ -1,1 +1,1 @@
-web: gunicorn newsBoard.wsgi
+web: gunicorn --pythonpath newsBoard newsBoard.wsgi
